@@ -1,6 +1,7 @@
 //does internal API calls which will then trigger our backend to do the external API call
 import React, { Component } from 'react';
 import axios from 'axios';
+import Favorites from '../Favorites/Favorites';
 import './Search.css';
 
 class Search extends Component {
@@ -8,30 +9,21 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      searchTerm: "",
-      result: [],
-      titles: [],
-      authors: [],
-      rating: []
+      searchTerm: "",     
+      searchResults: [],
+      favoriteBooks: []     
     };
 
     this.getResults = this.getResults.bind(this);
+    this.add = this.add.bind(this);
   }
 
-  //The method that will call the internal API and then fire the external API function in the controller
-  // componentDidMount() {
-  //   axios
-  //     .post("/api/getSearchResults", { searchTerm: this.state.searchTerm })
-  //     .then(result => {
-  //       result = result.data;
-
-  //        this.setState({ result: result });
-
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }
+  //To add books to favorite books
+  add(event){
+    this.setState({favoriteBooks: event.target.value});
+    console.log(this.state.favoriteBooks);
+  }
+ 
 
   getResults() {
     //calls to our internal API and sends whatever the search term is from the input
@@ -39,27 +31,17 @@ class Search extends Component {
       .post("/api/getSearchResults", { searchTerm: this.state.searchTerm })
       .then(result => {        
         result = result.data;
-        console.log(result);
+        console.log(result);      
 
-        let bookTitles = result.map(function(curr, index, array) {
-          return (
-            <li className="title" key={index}>
-              {curr.best_book[0].title}
-            </li>
-          );
-        });
-
-        let bookAuthors = result.map(function(curr, index) {
-          return (
-            <li className="author" key={index}>
-              {curr.best_book[0].author[0].name}
-            </li>
-          );
-        });
+        let searchResults = result.map(function(curr, index, array) {
+          return <li className="results-item" key={index} >
+              {curr.best_book[0].title} =>> {curr.best_book[0].author[0].name}
+              <button className="fav-button" key = {index}>+</button>
+            </li>;
+        });        
 
         this.setState({
-          titles: bookTitles,
-          authors: bookAuthors
+          searchResults: searchResults        
         });
         
       })
@@ -67,13 +49,11 @@ class Search extends Component {
         console.log(err);
       });
   }
-  getData() {
-    axios.get("/api/getImgs").then(result => {
-      console.log(result.data);
-    });
-  }
+
 
   render() {
+    // <Favorites searchResults = {this.state.searchResults} />
+
     return <div>
         <input id="search-bar" onChange={e => {
             this.setState({ searchTerm: e.target.value });
@@ -82,8 +62,8 @@ class Search extends Component {
           Search
         </button>
         <div className="results">
-          <div className="left-container">{this.state.titles}</div>
-          <div className="right-container">{this.state.authors}</div>
+          <div className="results-container">{this.state.searchResults}</div>
+         
           
         </div>
       </div>;

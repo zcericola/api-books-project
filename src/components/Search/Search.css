@@ -1,42 +1,76 @@
-#search-submit {
-    margin-left: 2em;
-}
-
-
-li .title {
-    text-align: left;  
-    text-decoration: none;
-
-}
-
-li .author {
-    text-align: right;
-    text-decoration: none;
-}
-
 li {
     font-size: 16px;
-    padding: 5px;    
+    padding: 5px;
 }
 
-.left-container {
-    background-color: royalblue;
+
+.results-item {
+    text-align: left;  
+    list-style-type: none;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.results-container {  
     height: 100%;
-    width: auto;
-    float: left;   
-    margin: 4em 0em 0em 10em;
+    width: auto;     
+    margin: 2em 4em;
     text-align: justify;
+    
 
 }
 
-.right-container {
-    background-color: royalblue;
-    height: 100%;
-    width: auto;
-    float:right;       
-    margin: 4em 10em 0em 0em;
-    text-align: justify;
+.results-container li:nth-child(odd) {
+    background-color: rgb(71, 71, 71);
 }
+
+.fav-button {
+   float: right;
+   margin-left: 10px;
+  
+}
+
+li .fav-button{
+    cursor: pointer;
+    background-color: #232323;
+    color: #FFFFF0;
+    border: 2px solid #FFFFF0;
+    border-radius: 5px;
+}
+
+button:active{
+     box-shadow: 0 5px #666;
+     transform: translateY(3px);
+     
+}
+
+button:focus {
+    outline: none;
+}
+
+#search-submit { 
+    margin-left: 20px;   
+    font-weight: 700;
+    cursor: pointer;   
+    border-radius: 5px;
+    background-color: #232323;
+    color: #FFFFF0;
+    border: 2px solid #FFFFF0;
+    padding: 2px;
+    letter-spacing: 1px;
+}
+
+#search-submit:hover {
+    color: #232323;
+    background-color: #FFFFF0;
+}
+
+
+
+
 
 
 

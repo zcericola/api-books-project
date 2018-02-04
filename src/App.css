@@ -1,7 +1,27 @@
-.App {
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+
+.app {
+  text-align: center;  
+  margin: 3em;
 }
 
+
+.fav-page-btn { 
+  margin-left: -7em;
+  font-weight: 700;
+  cursor: pointer;
+  float: right; 
+  border-radius: 5px;
+  background-color: #232323;
+  color: #FFFFF0;
+  border: 2px solid #FFFFF0;
+  padding: 2px;
+  letter-spacing: 1px;
+}
+
+.fav-page-btn:hover {
+  color: #232323;
+  background-color: #FFFFF0;
+}
 
 

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Noto Serif',
+  serif;
   background-color: #232323;
   color: #FFFFF0;
+  letter-spacing: 1px;
 }
