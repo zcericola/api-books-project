@@ -1,0 +1,42 @@
+#search-submit {
+    margin-left: 2em;
+}
+
+
+li .title {
+    text-align: left;  
+    text-decoration: none;
+
+}
+
+li .author {
+    text-align: right;
+    text-decoration: none;
+}
+
+li {
+    font-size: 16px;
+    padding: 5px;    
+}
+
+.left-container {
+    background-color: royalblue;
+    height: 100%;
+    width: auto;
+    float: left;   
+    margin: 4em 0em 0em 10em;
+    text-align: justify;
+
+}
+
+.right-container {
+    background-color: royalblue;
+    height: 100%;
+    width: auto;
+    float:right;       
+    margin: 4em 10em 0em 0em;
+    text-align: justify;
+}
+
+
+
