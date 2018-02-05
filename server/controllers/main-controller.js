@@ -3,6 +3,8 @@ const parseString = require('xml2js').parseString;
 //pulling in the api Key from key.js
 const { apiKey } = require("./../key");
 
+let favoriteBooks = [];
+
 // let baseUrl =
 //   "https://www.goodreads.com/search/index.xml?key=zJXHFyNNPZPwfKiB4KxWlw&q=";
 
@@ -19,8 +21,25 @@ let getSearchResults = (req,res,next) => {
     }).catch( (err) => {console.log(err)});
 }
 
+let addBook = (req,res,next) => {
+    favoriteBooks.push(req.body.favBook);
+    
+}
+
+let displayFavorites = (req, res, next) => {
+     res.json(favoriteBooks);
+}
+
+let deleteBook = (req, res, next) => {
+    favoriteBooks.splice(req.params.index, 1);
+    res.json(favoriteBooks);
+}
+
 //exporting the getSearchResults function so that the server will be able to use it.
 module.exports = {
-    getSearchResults: getSearchResults
+    getSearchResults: getSearchResults,
+    addBook: addBook,
+    displayFavorites: displayFavorites,
+    deleteBook: deleteBook
 }
 

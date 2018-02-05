@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 //require my controller file
-const { getSearchResults } = require("./controllers/main-controller");
+const { getSearchResults, addBook, displayFavorites, deleteBook } = require("./controllers/main-controller");
+
 
 
 
@@ -20,6 +21,9 @@ const portNum = 3002;
 
 //sending the external API data from the controller to my front-end for use with my components
 app.post("/api/getSearchResults",getSearchResults);
+app.post("/api/addBook", addBook);
+app.get("/api/displayFavorites", displayFavorites);
+app.delete("/api/deleteBook/:index", deleteBook);
 
 
 
