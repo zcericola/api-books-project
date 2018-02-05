@@ -6,8 +6,7 @@
 }
 
 
-.fav-page-btn { 
-  margin-left: -7em;
+.fav-page-btn {  
   font-weight: 700;
   cursor: pointer;
   float: right; 
@@ -19,9 +18,26 @@
   letter-spacing: 1px;
 }
 
-.fav-page-btn:hover {
+
+.home-btn {
+  float: left;  
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #232323;
+  color: #FFFFF0;
+  border: 2px solid #FFFFF0;
+  padding: 2px;
+  letter-spacing: 1px;
+}
+
+button:hover {
   color: #232323;
   background-color: #FFFFF0;
 }
 
+.favorites-top-div {
+  height: 2em;
+  width: auto;  
+}
 

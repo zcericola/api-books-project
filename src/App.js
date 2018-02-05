@@ -2,43 +2,51 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from "./components/Search/Search";
 import Favorites from "./components/Favorites/Favorites";
-
+import Alert from "./components/Alert/Alert";
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
-      results: []
-    }
+      results: [],
+      showSearch: true,
+      showFavorites: false
+    };
+    this.favPage = this.favPage.bind(this);
+     this.searchPage = this.searchPage.bind(this);
   }
 
-
-
-  resultsCb = (resultsFromSearch) => {
-    this.setState = {
-      results: resultsFromSearch
-    }
-
+  favPage() {
+    this.setState({
+      showSearch: false,
+      showFavorites: true
+    });
   }
 
-  favPage(){
-    {<Favorites />}
+  searchPage() {
+    this.setState({
+      showFavorites: false,
+      showSearch: true
+    });
   }
-
-
 
   render() {
     return <div className="app">
-        <div>          
+        <div className="favorites-top-div">
+          <button className="home-btn" onClick={this.searchPage}>
+            Go Home
+          </button>
           <button className="fav-page-btn" onClick={this.favPage}>
             Favorites
           </button>
         </div>
-        <h1 className="app-title">Book Database</h1>
-        <h3>Search by author or title</h3>
-
-        <Search />
+        <div className="main-header">
+          <h1 className="app-title">Book Database</h1>          
+        </div>
+        {this.state.showSearch && <Search />}
+        {this.state.showFavorites && <Favorites />}
+        <Alert />
       </div>;
   }
 }

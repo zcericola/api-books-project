@@ -1,7 +1,6 @@
 //does internal API calls which will then trigger our backend to do the external API call
 import React, { Component } from 'react';
 import axios from 'axios';
-import Favorites from '../Favorites/Favorites';
 import './Search.css';
 
 class Search extends Component {
@@ -15,13 +14,15 @@ class Search extends Component {
     };
 
     this.getResults = this.getResults.bind(this);
-    this.add = this.add.bind(this);
+    this.addBook = this.addBook.bind(this);
   }
 
   //To add books to favorite books
-  add(event){
-    this.setState({favoriteBooks: event.target.value});
-    console.log(this.state.favoriteBooks);
+  //sending the relevant info to the main controller
+  addBook(item){
+    this.setState({favoriteBooks: item});  
+    // console.log(item.best_book[0]);
+    axios.post("/api/addBook", {favBook: item.best_book[0]})
   }
  
 
@@ -30,18 +31,10 @@ class Search extends Component {
     axios
       .post("/api/getSearchResults", { searchTerm: this.state.searchTerm })
       .then(result => {        
-        result = result.data;
-        console.log(result);      
-
-        let searchResults = result.map(function(curr, index, array) {
-          return <li className="results-item" key={index} >
-              {curr.best_book[0].title} =>> {curr.best_book[0].author[0].name}
-              <button className="fav-button" key = {index}>+</button>
-            </li>;
-        });        
-
+        result = result.data;         
+          
         this.setState({
-          searchResults: searchResults        
+          searchResults: result        
         });
         
       })
@@ -52,9 +45,18 @@ class Search extends Component {
 
 
   render() {
-    // <Favorites searchResults = {this.state.searchResults} />
+       
+        let searchResults = this.state.searchResults.map((curr, index, array) => {
+      return <li className="results-item" key={index}>
+          {curr.best_book[0].title} =>> {curr.best_book[0].author[0].name}
+          <button className="fav-button" onClick={() => this.addBook(curr)}>
+            +
+          </button>
+        </li>;
+    });     
 
-    return <div>
+    return(
+     <div>
         <input id="search-bar" onChange={e => {
             this.setState({ searchTerm: e.target.value });
           }} />
@@ -62,11 +64,11 @@ class Search extends Component {
           Search
         </button>
         <div className="results">
-          <div className="results-container">{this.state.searchResults}</div>
+          <div className="results-container">{searchResults}</div>
          
           
         </div>
-      </div>;
+      </div>)
   }
 }
 

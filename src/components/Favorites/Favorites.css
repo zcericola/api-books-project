@@ -1,0 +1,40 @@
+li {
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+.favorites-container {        
+    height: 100%;
+    width: auto;
+    margin: 2em 4em;
+    text-align: justify;
+}
+
+
+.fav-item {
+     text-align: left;
+     list-style-type: none;
+     margin-bottom: 10px;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   
+}
+
+.favorites-container li:nth-child(odd) {
+    background-color: rgb(71, 71, 71);
+}
+
+.delete-button {
+    float: right;
+    margin-left: 10px;
+    padding: 5px 10px;
+}
+
+li .delete-button {
+    cursor: pointer;
+    background-color: #232323;
+    color: #FFFFF0;
+    border: 2px solid #FFFFF0;
+    border-radius: 5px;
+}
