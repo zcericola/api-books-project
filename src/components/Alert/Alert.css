@@ -1,0 +1,14 @@
+#alert-container {
+   background-color: rgb(71, 71, 71);
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.dismiss {
+     cursor: pointer;
+     font-weight: 700;
+     background-color: #232323;
+     color: #FFFFF0;
+     border: 2px solid #FFFFF0;
+     border-radius: 5px;
+}
