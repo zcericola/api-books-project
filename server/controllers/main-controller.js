@@ -4,9 +4,7 @@ const parseString = require('xml2js').parseString;
 const { apiKey } = require("./../key");
 
 let favoriteBooks = [];
-
-// let baseUrl =
-//   "https://www.goodreads.com/search/index.xml?key=zJXHFyNNPZPwfKiB4KxWlw&q=";
+let userTitle = '';
 
 let baseUrl = "https://www.goodreads.com/search/index.xml?key=";
 
@@ -35,11 +33,19 @@ let deleteBook = (req, res, next) => {
     res.json(favoriteBooks);
 }
 
+let editTitle = (req, res, next) => {
+    console.log(req.body.title);   
+    userTitle = (req.body.title);     
+    res.json(userTitle);
+}
+
+
 //exporting the getSearchResults function so that the server will be able to use it.
 module.exports = {
     getSearchResults: getSearchResults,
     addBook: addBook,
     displayFavorites: displayFavorites,
-    deleteBook: deleteBook
+    deleteBook: deleteBook,
+    editTitle: editTitle
 }
 

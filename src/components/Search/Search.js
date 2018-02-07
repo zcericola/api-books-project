@@ -60,7 +60,7 @@ class Search extends Component {
         <input id="search-bar" onChange={e => {
             this.setState({ searchTerm: e.target.value });
           }} />
-        <button id="search-submit" onClick={this.getResults}>
+        <button className="submit" onClick={this.getResults}>
           Search
         </button>
         <div className="results">

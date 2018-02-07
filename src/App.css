@@ -5,6 +5,15 @@
   margin: 3em;
 }
 
+.app-title:focus {
+  background-color: rgba(255, 0, 0, 0.527);
+  border-radius: 10px;
+  outline: none;
+  text-decoration: none;
+
+
+}
+
 
 .fav-page-btn {  
   font-weight: 700;
@@ -41,3 +50,25 @@ button:hover {
   width: auto;  
 }
 
+.edit-title-input {
+  margin-bottom: 2em;  
+  margin-left: 2.7em;  
+
+}
+
+.edit-title-btn {
+     margin-left: 20px;
+     font-weight: 700;
+     cursor: pointer;
+     border-radius: 5px;
+     background-color: #232323;
+     color: #FFFFF0;
+     border: 2px solid #FFFFF0;
+     padding: 2px;
+     letter-spacing: 1px;
+}
+
+.edit-title-btn:hover {
+  color: #232323;
+  background-color: #FFFFF0;
+}

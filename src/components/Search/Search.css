@@ -51,7 +51,7 @@ button:focus {
     outline: none;
 }
 
-#search-submit { 
+.submit { 
     margin-left: 20px;   
     font-weight: 700;
     cursor: pointer;   
@@ -63,7 +63,7 @@ button:focus {
     letter-spacing: 1px;
 }
 
-#search-submit:hover {
+.submit:hover {
     color: #232323;
     background-color: #FFFFF0;
 }

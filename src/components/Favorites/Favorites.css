@@ -1,3 +1,4 @@
+
 li {
     font-size: 16px;
     padding: 5px;
@@ -19,6 +20,10 @@ li {
      overflow: hidden;
      text-overflow: ellipsis;
    
+}
+
+.favorites-container{
+    text-align: center;
 }
 
 .favorites-container li:nth-child(odd) {

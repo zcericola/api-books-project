@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 //require my controller file
-const { getSearchResults, addBook, displayFavorites, deleteBook } = require("./controllers/main-controller");
+const { getSearchResults, addBook, displayFavorites, deleteBook, editTitle } = require("./controllers/main-controller");
 
 
 
@@ -24,6 +24,8 @@ app.post("/api/getSearchResults",getSearchResults);
 app.post("/api/addBook", addBook);
 app.get("/api/displayFavorites", displayFavorites);
 app.delete("/api/deleteBook/:index", deleteBook);
+app.put("/api/editTitle/", editTitle);
+
 
 
 

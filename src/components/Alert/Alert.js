@@ -5,7 +5,6 @@ import './Alert.css';
 
 const Alert = () => {
 
-
 return (
   <div id="alert-container">
     <h3>Greetings!</h3> 
