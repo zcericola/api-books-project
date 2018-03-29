@@ -13,7 +13,7 @@ class App extends Component {
       results: [],
       showSearch: true,
       showFavorites: false,
-      defaultTitle: 'Book Database',
+      defaultTitle: 'BookSpy',
       userTitle: ''
     };
     this.favPage = this.favPage.bind(this);
