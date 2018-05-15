@@ -1,4 +1,5 @@
 const axios = require('axios');
+//used to parse xml into json
 const parseString = require('xml2js').parseString;
 //pulling in the api Key from key.js
 const { apiKey } = require("./../key");
@@ -40,7 +41,7 @@ let editTitle = (req, res, next) => {
 }
 
 
-//exporting the getSearchResults function so that the server will be able to use it.
+//exporting the functions so that they can be referenced in my server
 module.exports = {
     getSearchResults: getSearchResults,
     addBook: addBook,

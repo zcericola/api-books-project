@@ -3,7 +3,7 @@ import './Alert.css';
 
 
 
-const Alert = () => {
+const Alert = (props) => {
 
 return (
   <div id="alert-container">

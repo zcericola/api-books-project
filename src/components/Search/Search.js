@@ -21,8 +21,7 @@ class Search extends Component {
   //sending the relevant info to the main controller
   addBook(item){
     this.setState({favoriteBooks: item});  
-    // console.log(item.best_book[0]);
-    axios.post("/api/addBook", {favBook: item.best_book[0]})
+    axios.post("/api/addBook", {favBook: item.best_book[0]});
   }
  
 
