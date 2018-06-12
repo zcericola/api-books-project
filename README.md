@@ -5,7 +5,6 @@ This project is a simple browser based application that was built to improve my 
 * **React** - Model View Controller JavaScript library
 * **Node.js** - Server-side JavaScript environment
 * **Express** - Server
-* **Massive** - Used to connect to PostgreSQL database
 * **Goodreads.com API** - Queried to provide information about authors and book titles
 
 ## Screenshots
